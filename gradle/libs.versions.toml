@@ -5,74 +5,76 @@ versionCode = "3"
 
 # SDK
 minSdk = "26"
-targetSdk = "36"
-compileSdk = "36"
+targetSdk = "37"
+compileSdk = "37"
 
 # Gradle
-gradle = "8.13.2"
+gradle = "9.2.1"
 
 # Kotlin
-kotlin = "2.3.10"
+kotlin = "2.4.0"
 
 # KotlinX
-kotlinxCoroutines = "1.10.2"
-kotlinxDatetime = "0.7.1"
-kotlinxSerializationJson = "1.10.0"
+kotlinxCoroutines = "1.11.0"
+kotlinxDatetime = "0.8.0"
+kotlinxSerializationJson = "1.11.0"
 kotlinxImmutable = "0.4.0"
 
 # KMP
-kmpCompose = "1.10.2"
+kmpCompose = "1.12.0-alpha01"
 kmpComplete = "1.1.0"
-kmpLifecycle = "2.9.6"
+kmpLifecycle = "2.11.0-beta01"
 kmpNavigation = "2.9.2"
-kmpPurchase = "2.8.0+17.46.0"
+kmpNavigation3 = "1.1.1"
+kmpPurchase = "3.0.5"
+kmpPurchaseDatetime = "2.10.2+17.55.1"
 kmpPurchaseCommon = "14.0.2"
-adaptive = "1.2.0"
+adaptive = "1.3.0-beta01"
 
 # AndroidX
-androidxCore = "1.17.0"
+androidxCore = "1.19.0"
 androidxCoreSplash = "1.2.0"
 androidxAppCompat = "1.7.1"
-androidxActivity = "1.12.2"
+androidxActivity = "1.13.0"
 androidxFragment = "1.8.9"
-androidxDataStore = "1.2.0"
-androidxAnnotation = "1.9.1"
-androidxRoom = "2.7.1"
-androidxSqlite = "2.5.1"
+androidxDataStore = "1.2.1"
+androidxAnnotation = "1.10.0"
+androidxRoom = "2.8.4"
+androidxSqlite = "2.6.2"
 
 # Google
 playReview = "2.0.2"
 playUpdate = "2.1.0"
-playServiceAds = "24.9.0"
-ksp = "2.3.4"
+playServiceAds = "25.3.0"
+ksp = "2.3.9"
 gms = "4.4.4"
 
 # Firebase
-firebase = "34.7.0"
-firebaseCrashlytics = "3.0.6"
+firebase = "34.14.1"
+firebaseCrashlytics = "3.0.7"
 
 # koin
-koin = "4.1.1"
+koin = "4.2.1"
 
 # UI
-calf = "0.9.0"
-zoomable = "2.9.0"
-kolor = "4.0.5"
-colorPicker = "1.1.3"
+calf = "0.12.0"
+zoomable = "2.12.0"
+kolor = "4.1.1"
+colorPicker = "1.2.0"
 
 # Ads
-lexilabsBasicAds = "1.1.0"
+lexilabsBasicAds = "1.1.1"
 
 # Others
 gifkt = "0.3.3"
-kmpZip = "0.7.2"
-ktor = "3.3.3"
-coil3 = "3.3.0"
-filekit = "0.13.0"
+kmpZip = "0.12.1"
+ktor = "3.5.0"
+coil3 = "3.4.0"
+filekit = "0.14.1"
 detekt = "1.23.8"
-libraries = "13.2.1"
-placeholder = "1.0.2"
-buildKonfig = "0.17.1"
+libraries = "14.2.1"
+placeholder = "1.0.3"
+buildKonfig = "0.21.2"
 twitterComposeRule = "0.0.26"
 
 # Debugs
@@ -81,6 +83,7 @@ napier = "2.7.1"
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradle" }
 android-library = { id = "com.android.library", version.ref = "gradle" }
+android-kmp-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "gradle" }
 kotlin-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
@@ -88,6 +91,7 @@ gms = { id = "com.google.gms.google-services", version.ref = "gms" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebaseCrashlytics" }
 libraries = { id = "com.mikepenz.aboutlibraries.plugin", version.ref = "libraries" }
+build-konfig = { id = "com.codingfeline.buildkonfig", version.ref = "buildKonfig" }
 kmp = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kmpCompose = { id = "org.jetbrains.compose", version.ref = "kmpCompose" }
 kmpComplete = { id = "com.louiscad.complete-kotlin", version.ref = "kmpComplete" }
@@ -130,9 +134,6 @@ androidx-sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.r
 # KMP
 kmp-lifecycle-runtime-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose", version.ref = "kmpLifecycle" }
 kmp-lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "kmpLifecycle" }
-kmp-navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "kmpNavigation" }
-kmp-navigation3 = { module = "org.jetbrains.androidx.navigation3:navigation3-ui", version = "1.0.0-alpha06" }
-kmp-navigation3-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-navigation3", version = "2.10.0-alpha07" }
 
 # Compose
 compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "kmpCompose" }
@@ -145,17 +146,17 @@ compose-ui-tooling-preview = { module = "org.jetbrains.compose.ui:ui-tooling-pre
 compose-ui-tooling = { module = "org.jetbrains.compose.ui:ui-tooling", version.ref = "kmpCompose" }
 
 # Material
-compose-material3 = { module = "org.jetbrains.compose.material3:material3", version = "1.10.0-alpha05" }
-compose-material3-adaptive-suite = { module = "org.jetbrains.compose.material3:material3-adaptive-navigation-suite", version = "1.9.0" }
+compose-material3 = { module = "org.jetbrains.compose.material3:material3", version = "1.12.0-alpha01" }
+compose-material3-adaptive-suite = { module = "org.jetbrains.compose.material3:material3-adaptive-navigation-suite", version = "1.12.0-alpha01" }
 compose-material-icons = { module = "org.jetbrains.compose.material:material-icons-extended", version = "1.7.3" }
 
 # Navigation
-compose-navigation3 = { module = "org.jetbrains.androidx.navigation3:navigation3-ui", version = "1.0.0-alpha06" }
-compose-navigation3-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-navigation3", version = "2.10.0-alpha07" }
+compose-navigation3 = { module = "org.jetbrains.androidx.navigation3:navigation3-ui", version.ref = "kmpNavigation3" }
+compose-navigation3-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-navigation3", version.ref = "kmpLifecycle" }
 
 # Purchase
 purchases-core = { module = "com.revenuecat.purchases:purchases-kmp-core", version.ref = "kmpPurchase" }
-purchases-datetime = { module = "com.revenuecat.purchases:purchases-kmp-datetime", version.ref = "kmpPurchase" }
+purchases-datetime = { module = "com.revenuecat.purchases:purchases-kmp-datetime", version.ref = "kmpPurchaseDatetime" }
 purchases-result = { module = "com.revenuecat.purchases:purchases-kmp-result", version.ref = "kmpPurchase" }
 
 # Adaptive

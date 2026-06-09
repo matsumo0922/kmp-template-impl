@@ -7,17 +7,17 @@ plugins {
     id("matsumo.primitive.detekt")
 }
 
-android {
-    namespace = "me.matsumo.grabee.core.resource"
-}
-
 compose.resources {
     publicResClass = true
-    packageOfResClass = "me.matsumo.grabee.core.resource"
+    packageOfResClass = "me.matsumo.romaflow.core.resource"
     generateResClass = always
 }
 
 kotlin {
+    android {
+        namespace = "me.matsumo.romaflow.core.resource"
+    }
+
     sourceSets {
         commonMain.dependencies {
             api(libs.compose.runtime)

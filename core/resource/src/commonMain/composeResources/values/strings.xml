@@ -64,7 +64,7 @@
     <!-- Home -->
     <string name="home_navigation_photos">Photos</string>
     <string name="home_navigation_downloads">Downloads</string>
-    <string name="home_title">Grabee</string>
+    <string name="home_title">RomaFlow</string>
     <string name="home_fab_title">Download</string>
     <string name="home_download_dialog_title">Download</string>
     <string name="home_download_dialog_description">Enter the URL of the content you want to download.</string>
@@ -76,7 +76,7 @@
     <string name="home_download_dialog_error_multiple_urls">Multiple URLs detected. Please enter only one URL.</string>
     <string name="home_download_dialog_error_unsupported_platform">This platform is not currently supported.</string>
     <string name="home_subscription_expired_title">Pro Plan Expired</string>
-    <string name="home_subscription_expired_message">Your Grabee Pro subscription has been canceled or refunded, so Pro features have been disabled.\nTo continue using them, please upgrade again.</string>
+    <string name="home_subscription_expired_message">Your RomaFlow Pro subscription has been canceled or refunded, so Pro features have been disabled.\nTo continue using them, please upgrade again.</string>
 
     <!-- Download -->
     <string name="download_title">Downloads</string>
@@ -132,21 +132,21 @@
 
     <!-- Setting Paywall -->
     <string name="setting_paywall_title">Pro</string>
-    <string name="setting_paywall_upgrade">Upgrade to Grabee Pro</string>
+    <string name="setting_paywall_upgrade">Upgrade to RomaFlow Pro</string>
     <string name="setting_paywall_description">Unlock all features including unlimited downloads, high quality, and no ads.</string>
     <string name="setting_paywall_download_limit">Remaining Downloads</string>
     <string name="setting_paywall_download_limit_description">%1$d remaining</string>
 
     <!-- Download Limit -->
     <string name="download_limit_title">Download Limit</string>
-    <string name="download_limit_message">The free version has a limited number of downloads.\nUpgrade to Grabee Pro for unlimited downloads.</string>
+    <string name="download_limit_message">The free version has a limited number of downloads.\nUpgrade to RomaFlow Pro for unlimited downloads.</string>
     <string name="download_limit_upgrade">Upgrade to Pro</string>
     <string name="download_limit_watch_ad">Watch an ad for extra downloads</string>
     <string name="download_limit_watch_ad_description">The current limit is %1$d. Watch an ad to get +%2$d additional downloads.</string>
     <string name="download_limit_watch_ad_loading">Loading ad…</string>
 
     <!-- Paywall -->
-    <string name="paywall_title">Grabee Pro</string>
+    <string name="paywall_title">RomaFlow Pro</string>
     <string name="paywall_subtitle">Unlock all features for a better download experience.</string>
     <string name="paywall_feature_unlimited_downloads">Unlimited Downloads</string>
     <string name="paywall_feature_unlimited_downloads_desc">Download without any limits.</string>

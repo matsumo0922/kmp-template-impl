@@ -1,6 +1,6 @@
 @file:Suppress("UnstableApiUsage")
 
-rootProject.name = "Grabee"
+rootProject.name = "RomaFlow"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
@@ -10,6 +10,9 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
     }
+}
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
 }
 
 dependencyResolutionManagement {
@@ -22,7 +25,8 @@ dependencyResolutionManagement {
     }
 }
 
-include(":composeApp")
+include(":shared")
+include(":androidApp")
 include(":core:common")
 include(":core:ui")
 include(":core:datasource")
@@ -31,6 +35,5 @@ include(":core:resource")
 include(":core:model")
 include(":core:billing")
 include(":feature:home")
-include(":feature:download")
 include(":feature:setting")
 include(":feature:billing")

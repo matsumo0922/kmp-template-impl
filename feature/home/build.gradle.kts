@@ -7,11 +7,11 @@ plugins {
     id("matsumo.primitive.detekt")
 }
 
-android {
-    namespace = "me.matsumo.grabee.feature.home"
-}
-
 kotlin {
+    android {
+        namespace = "me.matsumo.romaflow.feature.home"
+    }
+
     sourceSets {
         commonMain.dependencies {
             implementation(project(":core:common"))

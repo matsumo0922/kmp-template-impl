@@ -7,11 +7,11 @@ plugins {
     alias(libs.plugins.ksp)
 }
 
-android {
-    namespace = "me.matsumo.grabee.core.datasource"
-}
-
 kotlin {
+    android {
+        namespace = "me.matsumo.romaflow.core.datasource"
+    }
+
     sourceSets {
         androidMain.dependencies {
             implementation(libs.androidx.datastore)
@@ -51,7 +51,7 @@ kotlin {
 }
 
 dependencies {
-    listOf("kspAndroid", "kspIosX64", "kspIosArm64", "kspIosSimulatorArm64").forEach { target ->
+    listOf("kspAndroid", "kspIosArm64", "kspIosSimulatorArm64").forEach { target ->
         add(target, libs.androidx.room.compiler)
     }
 }

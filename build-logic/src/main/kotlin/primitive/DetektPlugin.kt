@@ -1,9 +1,9 @@
 package primitive
 
-import me.matsumo.grabee.configureDetekt
-import me.matsumo.grabee.library
-import me.matsumo.grabee.libs
-import me.matsumo.grabee.plugin
+import me.matsumo.romaflow.configureDetekt
+import me.matsumo.romaflow.library
+import me.matsumo.romaflow.libs
+import me.matsumo.romaflow.plugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies

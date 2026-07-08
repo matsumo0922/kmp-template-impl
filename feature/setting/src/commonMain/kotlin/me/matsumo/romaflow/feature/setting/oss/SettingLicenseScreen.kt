@@ -42,9 +42,7 @@ import org.jetbrains.compose.resources.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalResourceApi::class)
 @Composable
-internal fun SettingLicenseRoute(
-    modifier: Modifier = Modifier,
-) {
+internal fun SettingLicenseRoute(modifier: Modifier = Modifier) {
     val libs by rememberLibraries { Res.readBytes("files/aboutlibraries.json").decodeToString() }
 
     AnimatedContent(
@@ -67,10 +65,7 @@ internal fun SettingLicenseRoute(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun SettingLicenseScreen(
-    libs: Libs,
-    modifier: Modifier = Modifier,
-) {
+private fun SettingLicenseScreen(libs: Libs, modifier: Modifier = Modifier) {
     val navBackStack = LocalNavBackStack.current
     val state = rememberTopAppBarState()
     val behavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior(state)

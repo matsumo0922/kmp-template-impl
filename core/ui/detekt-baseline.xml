@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>ParameterNaming:ColorSlider.kt$onColorChanged</ID>
+    <ID>VariableMinLength:ColorSlider.kt$val b = blue</ID>
+    <ID>VariableMinLength:ColorSlider.kt$val g = green</ID>
+    <ID>VariableMinLength:ColorSlider.kt$val r = red</ID>
+  </CurrentIssues>
+</SmellBaseline>

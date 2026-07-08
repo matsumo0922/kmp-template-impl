@@ -17,10 +17,7 @@ import me.matsumo.romaflow.feature.setting.components.SettingTitleItem
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-internal fun SettingInfoSection(
-    setting: AppSetting,
-    modifier: Modifier = Modifier,
-) {
+internal fun SettingInfoSection(setting: AppSetting, modifier: Modifier = Modifier) {
     val appConfig = LocalAppConfig.current
     val clipboardManager = LocalClipboardManager.current
 

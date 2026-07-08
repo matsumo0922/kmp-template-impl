@@ -16,10 +16,7 @@ import org.jetbrains.compose.resources.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 @Composable
-internal fun SettingTopAppBar(
-    onBackClicked: () -> Unit,
-    modifier: Modifier = Modifier,
-) {
+internal fun SettingTopAppBar(onBackClicked: () -> Unit, modifier: Modifier = Modifier) {
     CenterAlignedTopAppBar(
         modifier = modifier,
         title = {

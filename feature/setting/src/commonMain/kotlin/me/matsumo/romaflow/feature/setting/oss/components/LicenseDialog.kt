@@ -24,10 +24,7 @@ import me.matsumo.romaflow.core.ui.theme.center
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun LicenseDialog(
-    library: Library,
-    onDismissRequest: () -> Unit,
-) {
+internal fun LicenseDialog(library: Library, onDismissRequest: () -> Unit) {
     BasicAlertDialog(onDismissRequest) {
         Column(
             modifier = Modifier

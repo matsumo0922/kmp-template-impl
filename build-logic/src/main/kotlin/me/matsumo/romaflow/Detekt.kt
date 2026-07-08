@@ -14,7 +14,7 @@ internal fun Project.configureDetekt() {
         toolVersion = libs.version("detekt")
         parallel = true
         config.setFrom(files("${project.rootDir}/config/detekt/detekt.yml"))
-        baseline = file("${project.rootDir}/config/detekt/baseline.xml")
+        baseline = file("${project.projectDir}/detekt-baseline.xml")
         buildUponDefaultConfig = true
         ignoreFailures = false
         autoCorrect = false
@@ -42,6 +42,15 @@ internal fun Project.configureDetekt() {
             reportMerge.configure {
                 input.from(this@detekt.xmlReportFile)
             }
+        }
+
+        tasks.withType<io.gitlab.arturbosch.detekt.DetektCreateBaselineTask> {
+            source = project.files("./").asFileTree
+
+            include("**/*.kt")
+            include("**/*.kts")
+            exclude("**/resources/**")
+            exclude("**/build/**")
         }
     }
 }

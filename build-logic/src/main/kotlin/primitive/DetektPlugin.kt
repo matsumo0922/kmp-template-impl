@@ -17,7 +17,7 @@ class DetektPlugin : Plugin<Project> {
 
             dependencies {
                 "detektPlugins"(libs.library("detekt-formatting"))
-                "detektPlugins"(libs.library("twitter-compose-rule"))
+                "detektPlugins"(libs.library("compose-rules-detekt"))
             }
         }
     }

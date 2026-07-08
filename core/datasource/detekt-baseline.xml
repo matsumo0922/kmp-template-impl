@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>ComplexCondition:PreferenceHelper.kt$v.startsWith("{") &amp;&amp; v.endsWith("}") || v.startsWith("[") &amp;&amp; v.endsWith("]")</ID>
+    <ID>CyclomaticComplexMethod:PreferenceHelper.kt$@OptIn(ExperimentalSerializationApi::class) fun &lt;T&gt; Preferences.deserialize( formatter: Json, serializer: KSerializer&lt;T&gt;, defaultValue: T, ): T</ID>
+  </CurrentIssues>
+</SmellBaseline>

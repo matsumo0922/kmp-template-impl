@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>CyclomaticComplexMethod:PaywallPlanSelector.kt$@Composable private fun PaywallPlanCard( product: ProductInfo, isSelected: Boolean, onClick: () -&gt; Unit, modifier: Modifier = Modifier, )</ID>
+    <ID>ParameterNaming:PaywallFooter.kt$onPrivacyClicked</ID>
+    <ID>ParameterNaming:PaywallFooter.kt$onPurchaseClicked</ID>
+    <ID>ParameterNaming:PaywallFooter.kt$onRestoreClicked</ID>
+    <ID>ParameterNaming:PaywallFooter.kt$onTermsClicked</ID>
+    <ID>ParameterNaming:PaywallPlanSelector.kt$onPlanSelected</ID>
+    <ID>ParameterNaming:PaywallScreen.kt$onBackClicked</ID>
+    <ID>ParameterNaming:PaywallScreen.kt$onPlanSelected</ID>
+    <ID>ParameterNaming:PaywallScreen.kt$onPrivacyClicked</ID>
+    <ID>ParameterNaming:PaywallScreen.kt$onPurchaseClicked</ID>
+    <ID>ParameterNaming:PaywallScreen.kt$onRestoreClicked</ID>
+    <ID>ParameterNaming:PaywallScreen.kt$onTermsClicked</ID>
+  </CurrentIssues>
+</SmellBaseline>

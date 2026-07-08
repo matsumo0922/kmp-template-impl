@@ -39,9 +39,7 @@ import org.jetbrains.compose.resources.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun HomeScreen(
-    modifier: Modifier = Modifier,
-) {
+internal fun HomeScreen(modifier: Modifier = Modifier) {
     val navBackStack = LocalNavBackStack.current
 
     val currentIndex = rememberSaveable { mutableIntStateOf(0) }

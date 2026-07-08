@@ -37,9 +37,7 @@ import me.matsumo.romaflow.core.resource.paywall_feature_unlimited_downloads_des
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-internal fun PaywallFeatureList(
-    modifier: Modifier = Modifier,
-) {
+internal fun PaywallFeatureList(modifier: Modifier = Modifier) {
     val features = listOf(
         Triple(Icons.Default.Download, Res.string.paywall_feature_unlimited_downloads, Res.string.paywall_feature_unlimited_downloads_desc),
         Triple(Icons.Default.HighQuality, Res.string.paywall_feature_high_quality, Res.string.paywall_feature_high_quality_desc),

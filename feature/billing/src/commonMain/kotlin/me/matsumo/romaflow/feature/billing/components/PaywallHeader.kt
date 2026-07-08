@@ -25,9 +25,7 @@ import me.matsumo.romaflow.core.resource.paywall_title
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-internal fun PaywallHeader(
-    modifier: Modifier = Modifier,
-) {
+internal fun PaywallHeader(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally,

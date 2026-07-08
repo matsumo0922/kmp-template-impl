@@ -11,10 +11,7 @@ import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-internal fun SettingTitleItem(
-    text: StringResource,
-    modifier: Modifier = Modifier,
-) {
+internal fun SettingTitleItem(text: StringResource, modifier: Modifier = Modifier) {
     Text(
         modifier = modifier.padding(
             top = 24.dp,

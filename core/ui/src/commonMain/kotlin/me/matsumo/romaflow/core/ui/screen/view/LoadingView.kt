@@ -16,10 +16,7 @@ import org.jetbrains.compose.resources.stringResource
 
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
-fun LoadingView(
-    modifier: Modifier = Modifier,
-    message: StringResource? = null,
-) {
+fun LoadingView(modifier: Modifier = Modifier, message: StringResource? = null) {
     Column(
         modifier = modifier.padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,

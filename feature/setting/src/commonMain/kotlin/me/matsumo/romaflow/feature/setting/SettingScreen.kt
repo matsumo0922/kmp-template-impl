@@ -19,10 +19,7 @@ import me.matsumo.romaflow.feature.setting.components.section.SettingThemeSectio
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
-internal fun SettingScreen(
-    modifier: Modifier = Modifier,
-    viewModel: SettingViewModel = koinViewModel(),
-) {
+internal fun SettingScreen(modifier: Modifier = Modifier, viewModel: SettingViewModel = koinViewModel()) {
     val navBackStack = LocalNavBackStack.current
     val uriHandler = LocalUriHandler.current
     val setting by viewModel.setting.collectAsStateWithLifecycle()

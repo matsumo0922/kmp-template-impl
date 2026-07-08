@@ -15,9 +15,7 @@ import me.matsumo.romaflow.feature.setting.oss.settingLicenseEntry
 import me.matsumo.romaflow.feature.setting.settingEntry
 
 @Composable
-internal fun AppNavHost(
-    modifier: Modifier = Modifier,
-) {
+internal fun AppNavHost(modifier: Modifier = Modifier) {
     val navBackStack = rememberNavBackStack(Destination.config, Destination.Home)
 
     CompositionLocalProvider(

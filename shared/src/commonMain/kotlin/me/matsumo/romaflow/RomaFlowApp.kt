@@ -14,10 +14,7 @@ import me.matsumo.romaflow.core.ui.theme.RomaFlowTheme
 
 @OptIn(DependsOnGoogleMobileAds::class, DependsOnGoogleUserMessagingPlatform::class)
 @Composable
-fun RomaFlowApp(
-    setting: AppSetting,
-    modifier: Modifier = Modifier,
-) {
+fun RomaFlowApp(setting: AppSetting, modifier: Modifier = Modifier) {
     SetupCoil()
     BasicAds.Initialize()
 

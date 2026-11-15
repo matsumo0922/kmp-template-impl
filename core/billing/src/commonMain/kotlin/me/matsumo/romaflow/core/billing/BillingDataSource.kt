@@ -176,9 +176,7 @@ class BillingDataSource(
         }
     }
 
-    fun getCurrentSubscriptionState(): SubscriptionState {
-        return _subscriptionState.value
-    }
+    fun getCurrentSubscriptionState(): SubscriptionState = _subscriptionState.value
 
     private fun CustomerInfo.toSubscriptionState(): SubscriptionState {
         val entitlement = entitlements.active[SubscriptionPlan.ENTITLEMENT_PRO]

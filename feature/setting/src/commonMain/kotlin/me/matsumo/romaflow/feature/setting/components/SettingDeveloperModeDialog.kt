@@ -9,7 +9,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -25,7 +25,7 @@ import org.jetbrains.compose.resources.stringResource
 
 @Composable
 internal fun SettingDeveloperModeDialog(
-    onDeveloperModeEnabled: () -> Unit,
+    onDeveloperModeEnable: () -> Unit,
     onDismissRequest: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -34,7 +34,9 @@ internal fun SettingDeveloperModeDialog(
     var pin by remember { mutableStateOf("") }
     var error by remember { mutableStateOf(false) }
 
-    LaunchedEffect(pin) {
+    SideEffect(
+        key1 = pin,
+    ) {
         error = false
     }
 
@@ -75,7 +77,7 @@ internal fun SettingDeveloperModeDialog(
             TextButton(
                 onClick = {
                     if (pin == appConfig.developerPin) {
-                        onDeveloperModeEnabled.invoke()
+                        onDeveloperModeEnable.invoke()
                     } else {
                         error = true
                     }

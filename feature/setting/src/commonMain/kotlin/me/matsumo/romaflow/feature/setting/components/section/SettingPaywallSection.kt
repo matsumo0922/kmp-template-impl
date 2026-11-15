@@ -12,7 +12,10 @@ import me.matsumo.romaflow.feature.setting.components.SettingTextItem
 import me.matsumo.romaflow.feature.setting.components.SettingTitleItem
 
 @Composable
-internal fun SettingPaywallSection(modifier: Modifier = Modifier, onUpgradeClicked: () -> Unit) {
+internal fun SettingPaywallSection(
+    onUpgradeClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
     Column(modifier) {
         SettingTitleItem(
             modifier = Modifier.fillMaxWidth(),
@@ -23,7 +26,7 @@ internal fun SettingPaywallSection(modifier: Modifier = Modifier, onUpgradeClick
             modifier = Modifier.fillMaxWidth(),
             title = Res.string.setting_paywall_upgrade,
             description = Res.string.setting_paywall_description,
-            onClick = onUpgradeClicked,
+            onClick = onUpgradeClick,
         )
     }
 }

@@ -17,7 +17,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.SaveableStateHolder
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -42,7 +42,9 @@ internal fun HomeScreen(onSettingClick: () -> Unit, modifier: Modifier = Modifie
     val saveableStateHolder: SaveableStateHolder = rememberSaveableStateHolder()
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
 
-    LaunchedEffect(currentIndex.intValue) {
+    SideEffect(
+        key1 = currentIndex.intValue,
+    ) {
         scrollBehavior.state.heightOffset = 0f
     }
 
@@ -76,7 +78,7 @@ internal fun HomeScreen(onSettingClick: () -> Unit, modifier: Modifier = Modifie
                 HomeTopAppBar(
                     modifier = Modifier.fillMaxWidth(),
                     scrollBehavior = scrollBehavior,
-                    onSettingClicked = onSettingClick,
+                    onSettingClick = onSettingClick,
                 )
             },
         ) { contentPadding ->
@@ -120,7 +122,7 @@ internal fun HomeScreen(onSettingClick: () -> Unit, modifier: Modifier = Modifie
 @Composable
 private fun HomeTopAppBar(
     scrollBehavior: TopAppBarScrollBehavior,
-    onSettingClicked: () -> Unit,
+    onSettingClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val googleSansFamily = FontFamily(
@@ -141,7 +143,7 @@ private fun HomeTopAppBar(
             )
         },
         actions = {
-            IconButton(onClick = onSettingClicked) {
+            IconButton(onClick = onSettingClick) {
                 Icon(
                     imageVector = Icons.Default.Settings,
                     contentDescription = "Settings",

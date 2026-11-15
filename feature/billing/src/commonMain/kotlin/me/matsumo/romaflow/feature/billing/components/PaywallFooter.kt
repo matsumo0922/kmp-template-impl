@@ -28,10 +28,10 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 internal fun PaywallFooter(
     isLoading: Boolean,
-    onPurchaseClicked: () -> Unit,
-    onRestoreClicked: () -> Unit,
-    onTermsClicked: () -> Unit,
-    onPrivacyClicked: () -> Unit,
+    onPurchaseClick: () -> Unit,
+    onRestoreClick: () -> Unit,
+    onTermsClick: () -> Unit,
+    onPrivacyClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -43,7 +43,7 @@ internal fun PaywallFooter(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(56.dp),
-            onClick = onPurchaseClicked,
+            onClick = onPurchaseClick,
             enabled = !isLoading,
             shape = RoundedCornerShape(16.dp),
             colors = ButtonDefaults.buttonColors(
@@ -66,7 +66,7 @@ internal fun PaywallFooter(
         }
 
         TextButton(
-            onClick = onRestoreClicked,
+            onClick = onRestoreClick,
             enabled = !isLoading,
         ) {
             Text(text = stringResource(Res.string.paywall_restore))
@@ -76,7 +76,7 @@ internal fun PaywallFooter(
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            TextButton(onClick = onTermsClicked) {
+            TextButton(onClick = onTermsClick) {
                 Text(
                     text = stringResource(Res.string.paywall_terms),
                     style = MaterialTheme.typography.labelSmall,
@@ -89,7 +89,7 @@ internal fun PaywallFooter(
                 color = MaterialTheme.colorScheme.outline,
             )
 
-            TextButton(onClick = onPrivacyClicked) {
+            TextButton(onClick = onPrivacyClick) {
                 Text(
                     text = stringResource(Res.string.paywall_privacy),
                     style = MaterialTheme.typography.labelSmall,

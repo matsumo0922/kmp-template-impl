@@ -71,11 +71,11 @@ kmpZip = "0.12.1"
 ktor = "3.5.0"
 coil3 = "3.4.0"
 filekit = "0.14.1"
-detekt = "1.23.8"
+detekt = "2.0.0-alpha.6"
 libraries = "14.2.1"
 placeholder = "1.0.3"
 buildKonfig = "0.21.2"
-composeRules = "0.4.23"
+composeRules = "0.6.8"
 
 # Debugs
 napier = "2.7.1"
@@ -88,7 +88,7 @@ kotlin-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 gms = { id = "com.google.gms.google-services", version.ref = "gms" }
-detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+detekt = { id = "dev.detekt", version.ref = "detekt" }
 firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebaseCrashlytics" }
 libraries = { id = "com.mikepenz.aboutlibraries.plugin", version.ref = "libraries" }
 build-konfig = { id = "com.codingfeline.buildkonfig", version.ref = "buildKonfig" }
@@ -103,8 +103,8 @@ kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-pl
 gms-services = { group = "com.google.gms", name = "google-services", version.ref = "gms" }
 build-konfig-gradlePlugin = { group = "com.codingfeline.buildkonfig", name = "buildkonfig-gradle-plugin", version.ref = "buildKonfig" }
 secret-gradlePlugin = { group = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", name = "secrets-gradle-plugin", version = "2.0.1" }
-detekt-gradlePlugin = { group = "io.gitlab.arturbosch.detekt", name = "detekt-gradle-plugin", version.ref = "detekt" }
-detekt-formatting = { group = "io.gitlab.arturbosch.detekt", name = "detekt-formatting", version.ref = "detekt" }
+detekt-gradlePlugin = { group = "dev.detekt", name = "detekt-gradle-plugin", version.ref = "detekt" }
+detekt-ktlint-wrapper = { group = "dev.detekt", name = "detekt-rules-ktlint-wrapper", version.ref = "detekt" }
 
 # Kotlin
 kotlin-bom = { module = "org.jetbrains.kotlin:kotlin-bom", version.ref = "kotlin" }

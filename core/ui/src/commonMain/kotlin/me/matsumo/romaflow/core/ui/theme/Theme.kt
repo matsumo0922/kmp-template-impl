@@ -7,6 +7,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.ReadOnlyComposable
 import me.matsumo.romaflow.core.model.AppConfig
 import me.matsumo.romaflow.core.model.AppSetting
 import me.matsumo.romaflow.core.model.Theme
@@ -43,10 +44,9 @@ fun RomaFlowTheme(
 }
 
 @Composable
-fun shouldUseDarkTheme(theme: Theme): Boolean {
-    return when (theme) {
-        Theme.System -> isSystemInDarkTheme()
-        Theme.Light -> false
-        Theme.Dark -> true
-    }
+@ReadOnlyComposable
+fun shouldUseDarkTheme(theme: Theme): Boolean = when (theme) {
+    Theme.System -> isSystemInDarkTheme()
+    Theme.Light -> false
+    Theme.Dark -> true
 }

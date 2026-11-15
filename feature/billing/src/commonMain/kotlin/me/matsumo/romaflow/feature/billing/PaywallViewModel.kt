@@ -41,7 +41,7 @@ class PaywallViewModel(
         viewModelScope.launch {
             _screenState.value = ScreenState.Loading()
             _screenState.value = suspendRunCatching {
-                val fetchedProducts = billingRepository.getProducts() ?: emptyList()
+                val fetchedProducts = billingRepository.getProducts().orEmpty()
                 products = fetchedProducts
                 PaywallUiState(products = fetchedProducts.toImmutableList())
             }.fold(

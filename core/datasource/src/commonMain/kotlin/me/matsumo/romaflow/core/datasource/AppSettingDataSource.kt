@@ -22,7 +22,7 @@ import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
 class AppSettingDataSource(
-    private val preferenceHelper: PreferenceHelper,
+    preferenceHelper: PreferenceHelper,
     private val formatter: Json,
     private val ioDispatcher: CoroutineDispatcher,
 ) {

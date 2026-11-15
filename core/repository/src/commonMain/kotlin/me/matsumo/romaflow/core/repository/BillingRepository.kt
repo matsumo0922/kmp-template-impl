@@ -85,13 +85,9 @@ class BillingRepository(
         return if (isPremiumNow) PurchaseResult.Success else result
     }
 
-    fun isPremium(): Boolean {
-        return billingDataSource.getCurrentSubscriptionState().isPremium
-    }
+    fun isPremium(): Boolean = billingDataSource.getCurrentSubscriptionState().isPremium
 
-    fun getCurrentSubscriptionState(): SubscriptionState {
-        return billingDataSource.getCurrentSubscriptionState()
-    }
+    fun getCurrentSubscriptionState(): SubscriptionState = billingDataSource.getCurrentSubscriptionState()
 
     /**
      * RevenueCat の最新の CustomerInfo を取得し、plusMode を同期する。

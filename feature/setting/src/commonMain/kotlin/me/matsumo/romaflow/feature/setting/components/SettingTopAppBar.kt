@@ -16,14 +16,14 @@ import org.jetbrains.compose.resources.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 @Composable
-internal fun SettingTopAppBar(onBackClicked: () -> Unit, modifier: Modifier = Modifier) {
+internal fun SettingTopAppBar(onBackClick: () -> Unit, modifier: Modifier = Modifier) {
     CenterAlignedTopAppBar(
         modifier = modifier,
         title = {
             Text(stringResource(Res.string.setting_title))
         },
         navigationIcon = {
-            IconButton(onBackClicked) {
+            IconButton(onBackClick) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Default.ArrowBack,
                     contentDescription = null,

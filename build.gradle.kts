@@ -10,7 +10,7 @@ plugins {
     alias(libs.plugins.firebase.crashlytics) apply false
     alias(libs.plugins.libraries) apply false
     alias(libs.plugins.build.konfig) apply false
-    alias(libs.plugins.detekt) apply false
+    id("matsumo.primitive.detekt")
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.gms) apply false
 }

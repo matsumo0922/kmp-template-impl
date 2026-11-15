@@ -30,7 +30,7 @@ import kotlin.math.min
 @Composable
 fun ColorSlider(
     color: Color?,
-    onColorChanged: (Color) -> Unit,
+    onColorChange: (Color) -> Unit,
     modifier: Modifier = Modifier,
     trackHeight: Dp = 20.dp,
     knobRadius: Dp = 16.dp,
@@ -74,14 +74,16 @@ fun ColorSlider(
                     val newNorm = (offset.x / size.width).coerceIn(0f, 0.99f)
                     val newColor = when {
                         newNorm <= 0f -> Color.White
+
                         newNorm >= 1f -> Color.White
+
                         else -> Color.hsv(
                             hue = newNorm * 360f,
                             saturation = 1f,
                             value = 1f,
                         )
                     }
-                    onColorChanged(newColor)
+                    onColorChange(newColor)
                 }
             }
             .pointerInput(enabled) {
@@ -90,14 +92,16 @@ fun ColorSlider(
                     val newNorm = (change.position.x / size.width).coerceIn(0f, 0.99f)
                     val newColor = when {
                         newNorm <= 0f -> Color.White
+
                         newNorm >= 1f -> Color.White
+
                         else -> Color.hsv(
                             hue = newNorm * 360f,
                             saturation = 1f,
                             value = 1f,
                         )
                     }
-                    onColorChanged(newColor)
+                    onColorChange(newColor)
                 }
             },
     ) {
@@ -129,20 +133,20 @@ fun ColorSlider(
 }
 
 private fun Color.hue360(): Float {
-    val r = red
-    val g = green
-    val b = blue
+    val redChannel = red
+    val greenChannel = green
+    val blueChannel = blue
 
-    val max = max(max(r, g), b)
-    val min = min(min(r, g), b)
+    val max = max(max(redChannel, greenChannel), blueChannel)
+    val min = min(min(redChannel, greenChannel), blueChannel)
     val delta = max - min
 
     if (delta == 0f) return 0f
 
     val hue = when (max) {
-        r -> 60f * (((g - b) / delta) % 6f)
-        g -> 60f * (((b - r) / delta) + 2f)
-        else -> 60f * (((r - g) / delta) + 4f)
+        redChannel -> 60f * (((greenChannel - blueChannel) / delta) % 6f)
+        greenChannel -> 60f * (((blueChannel - redChannel) / delta) + 2f)
+        else -> 60f * (((redChannel - greenChannel) / delta) + 4f)
     }
     return if (hue < 0f) hue + 360f else hue
 }

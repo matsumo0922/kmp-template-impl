@@ -32,16 +32,12 @@ import me.matsumo.romaflow.core.resource.google_sans_bold
 import me.matsumo.romaflow.core.resource.google_sans_medium
 import me.matsumo.romaflow.core.resource.google_sans_regular
 import me.matsumo.romaflow.core.resource.home_title
-import me.matsumo.romaflow.core.ui.screen.Destination
-import me.matsumo.romaflow.core.ui.theme.LocalNavBackStack
 import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun HomeScreen(modifier: Modifier = Modifier) {
-    val navBackStack = LocalNavBackStack.current
-
+internal fun HomeScreen(onSettingClick: () -> Unit, modifier: Modifier = Modifier) {
     val currentIndex = rememberSaveable { mutableIntStateOf(0) }
     val saveableStateHolder: SaveableStateHolder = rememberSaveableStateHolder()
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
@@ -80,7 +76,7 @@ internal fun HomeScreen(modifier: Modifier = Modifier) {
                 HomeTopAppBar(
                     modifier = Modifier.fillMaxWidth(),
                     scrollBehavior = scrollBehavior,
-                    onSettingClicked = { navBackStack.add(Destination.Setting.Root) },
+                    onSettingClicked = onSettingClick,
                 )
             },
         ) { contentPadding ->

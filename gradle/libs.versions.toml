@@ -151,6 +151,7 @@ compose-material3-adaptive-suite = { module = "org.jetbrains.compose.material3:m
 compose-material-icons = { module = "org.jetbrains.compose.material:material-icons-extended", version = "1.7.3" }
 
 # Navigation
+compose-navigation3-runtime = { module = "androidx.navigation3:navigation3-runtime", version.ref = "kmpNavigation3" }
 compose-navigation3 = { module = "org.jetbrains.androidx.navigation3:navigation3-ui", version.ref = "kmpNavigation3" }
 compose-navigation3-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-navigation3", version.ref = "kmpLifecycle" }
 
@@ -262,8 +263,6 @@ compose = [
     "compose-material3",
     "compose-material3-adaptive-suite",
     "compose-material-icons",
-    "compose-navigation3",
-    "compose-navigation3-viewmodel",
 ]
 
 purchase = [

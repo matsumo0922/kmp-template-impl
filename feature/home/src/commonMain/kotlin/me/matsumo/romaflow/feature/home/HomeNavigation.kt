@@ -4,12 +4,17 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavKey
-import me.matsumo.romaflow.core.ui.screen.Destination
+import kotlinx.serialization.Serializable
 
-fun EntryProviderScope<NavKey>.homeEntry() {
-    entry<Destination.Home> {
+/** ホーム画面のルート。 */
+@Serializable
+data object HomeRootRoute : NavKey
+
+fun EntryProviderScope<NavKey>.homeEntry(onSettingClick: () -> Unit) {
+    entry<HomeRootRoute> {
         HomeScreen(
             modifier = Modifier.fillMaxSize(),
+            onSettingClick = onSettingClick,
         )
     }
 }

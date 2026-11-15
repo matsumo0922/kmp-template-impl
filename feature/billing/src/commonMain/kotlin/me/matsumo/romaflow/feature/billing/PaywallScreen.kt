@@ -22,6 +22,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -36,7 +37,6 @@ import me.matsumo.romaflow.core.resource.common_close
 import me.matsumo.romaflow.core.resource.paywall_error_no_subscription_to_restore
 import me.matsumo.romaflow.core.resource.paywall_error_purchase_failed
 import me.matsumo.romaflow.core.ui.screen.AsyncLoadContents
-import me.matsumo.romaflow.core.ui.theme.LocalNavBackStack
 import me.matsumo.romaflow.feature.billing.components.PaywallFeatureList
 import me.matsumo.romaflow.feature.billing.components.PaywallFooter
 import me.matsumo.romaflow.feature.billing.components.PaywallHeader
@@ -49,15 +49,16 @@ import org.koin.compose.viewmodel.koinViewModel
 @Composable
 internal fun PaywallScreen(
     source: String,
+    onBack: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: PaywallViewModel = koinViewModel(),
 ) {
-    val navBackStack = LocalNavBackStack.current
     val uriHandler = LocalUriHandler.current
     val screenState by viewModel.screenState.collectAsStateWithLifecycle()
     val purchaseState by viewModel.purchaseState.collectAsStateWithLifecycle()
     val selectedPlan by viewModel.selectedPlan.collectAsStateWithLifecycle()
     val snackbarHostState = remember { SnackbarHostState() }
+    val currentOnBack by rememberUpdatedState(onBack)
 
     val purchaseFailedMessage = stringResource(Res.string.paywall_error_purchase_failed)
     val noSubscriptionMessage = stringResource(Res.string.paywall_error_no_subscription_to_restore)
@@ -65,7 +66,7 @@ internal fun PaywallScreen(
     LaunchedEffect(purchaseState) {
         when (purchaseState) {
             is PurchaseUiState.Success -> {
-                navBackStack.removeLastOrNull()
+                currentOnBack()
             }
 
             is PurchaseUiState.PurchaseFailed -> {
@@ -98,7 +99,7 @@ internal fun PaywallScreen(
             onPlanSelected = viewModel::selectPlan,
             onPurchaseClicked = viewModel::purchase,
             onRestoreClicked = viewModel::restore,
-            onBackClicked = { navBackStack.removeLastOrNull() },
+            onBackClicked = onBack,
             onTermsClicked = { uriHandler.openUri("https://www.matsumo.me/application/all/team_of_service") },
             onPrivacyClicked = { uriHandler.openUri("https://www.matsumo.me/application/all/privacy_policy") },
         )

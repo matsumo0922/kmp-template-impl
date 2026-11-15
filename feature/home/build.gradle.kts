@@ -22,6 +22,7 @@ kotlin {
             implementation(project(":core:resource"))
 
             implementation(libs.kotlinx.datetime)
+            implementation(libs.compose.navigation3.runtime)
         }
     }
 }

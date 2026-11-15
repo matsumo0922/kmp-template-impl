@@ -96,12 +96,12 @@ internal fun PaywallScreen(
             selectedPlan = selectedPlan,
             purchaseState = purchaseState,
             snackbarHostState = snackbarHostState,
-            onPlanSelected = viewModel::selectPlan,
-            onPurchaseClicked = viewModel::purchase,
-            onRestoreClicked = viewModel::restore,
-            onBackClicked = onBack,
-            onTermsClicked = { uriHandler.openUri("https://www.matsumo.me/application/all/team_of_service") },
-            onPrivacyClicked = { uriHandler.openUri("https://www.matsumo.me/application/all/privacy_policy") },
+            onPlanSelect = viewModel::selectPlan,
+            onPurchaseClick = viewModel::purchase,
+            onRestoreClick = viewModel::restore,
+            onBackClick = onBack,
+            onTermsClick = { uriHandler.openUri("https://www.matsumo.me/application/all/team_of_service") },
+            onPrivacyClick = { uriHandler.openUri("https://www.matsumo.me/application/all/privacy_policy") },
         )
     }
 }
@@ -113,12 +113,12 @@ private fun PaywallContent(
     selectedPlan: SubscriptionPlan,
     purchaseState: PurchaseUiState,
     snackbarHostState: SnackbarHostState,
-    onPlanSelected: (SubscriptionPlan) -> Unit,
-    onPurchaseClicked: () -> Unit,
-    onRestoreClicked: () -> Unit,
-    onBackClicked: () -> Unit,
-    onTermsClicked: () -> Unit,
-    onPrivacyClicked: () -> Unit,
+    onPlanSelect: (SubscriptionPlan) -> Unit,
+    onPurchaseClick: () -> Unit,
+    onRestoreClick: () -> Unit,
+    onBackClick: () -> Unit,
+    onTermsClick: () -> Unit,
+    onPrivacyClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val isLoading = purchaseState is PurchaseUiState.Loading
@@ -129,7 +129,7 @@ private fun PaywallContent(
             TopAppBar(
                 title = { },
                 navigationIcon = {
-                    IconButton(onClick = onBackClicked) {
+                    IconButton(onClick = onBackClick) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                             contentDescription = stringResource(Res.string.common_close),
@@ -169,16 +169,16 @@ private fun PaywallContent(
                 modifier = Modifier.fillMaxWidth(),
                 products = products,
                 selectedPlan = selectedPlan,
-                onPlanSelected = onPlanSelected,
+                onPlanSelect = onPlanSelect,
             )
 
             PaywallFooter(
                 modifier = Modifier.fillMaxWidth(),
                 isLoading = isLoading,
-                onPurchaseClicked = onPurchaseClicked,
-                onRestoreClicked = onRestoreClicked,
-                onTermsClicked = onTermsClicked,
-                onPrivacyClicked = onPrivacyClicked,
+                onPurchaseClick = onPurchaseClick,
+                onRestoreClick = onRestoreClick,
+                onTermsClick = onTermsClick,
+                onPrivacyClick = onPrivacyClick,
             )
         }
     }

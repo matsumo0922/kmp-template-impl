@@ -24,8 +24,15 @@ import me.matsumo.romaflow.core.ui.theme.center
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun LicenseDialog(library: Library, onDismissRequest: () -> Unit) {
-    BasicAlertDialog(onDismissRequest) {
+internal fun LicenseDialog(
+    library: Library,
+    onDismissRequest: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    BasicAlertDialog(
+        modifier = modifier,
+        onDismissRequest = onDismissRequest,
+    ) {
         Column(
             modifier = Modifier
                 .fillMaxHeight(0.78f)

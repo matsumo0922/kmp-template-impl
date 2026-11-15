@@ -26,10 +26,10 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 internal fun SettingOthersSection(
     setting: AppSetting,
-    onTeamsOfServiceClicked: () -> Unit,
-    onPrivacyPolicyClicked: () -> Unit,
-    onOpenSourceLicenseClicked: () -> Unit,
-    onDeveloperModeChanged: (Boolean) -> Unit,
+    onTeamsOfServiceClick: () -> Unit,
+    onPrivacyPolicyClick: () -> Unit,
+    onOpenSourceLicenseClick: () -> Unit,
+    onDeveloperModeChange: (Boolean) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     var isShowDeveloperModeDialog by remember { mutableStateOf(false) }
@@ -43,20 +43,20 @@ internal fun SettingOthersSection(
         SettingTextItem(
             modifier = Modifier.fillMaxWidth(),
             title = stringResource(Res.string.setting_other_team_of_service),
-            onClick = onTeamsOfServiceClicked,
+            onClick = onTeamsOfServiceClick,
         )
 
         SettingTextItem(
             modifier = Modifier.fillMaxWidth(),
             title = stringResource(Res.string.setting_other_privacy_policy),
-            onClick = onPrivacyPolicyClicked,
+            onClick = onPrivacyPolicyClick,
         )
 
         SettingTextItem(
             modifier = Modifier.fillMaxWidth(),
             title = Res.string.setting_other_open_source_license,
             description = Res.string.setting_other_open_source_license_description,
-            onClick = { onOpenSourceLicenseClicked.invoke() },
+            onClick = { onOpenSourceLicenseClick.invoke() },
         )
 
         SettingSwitchItem(
@@ -64,11 +64,11 @@ internal fun SettingOthersSection(
             title = Res.string.setting_other_developer_mode,
             description = Res.string.setting_other_developer_mode_description,
             value = setting.developerMode,
-            onValueChanged = {
+            onValueChange = {
                 if (it) {
                     isShowDeveloperModeDialog = true
                 } else {
-                    onDeveloperModeChanged.invoke(false)
+                    onDeveloperModeChange.invoke(false)
                 }
             },
         )
@@ -76,8 +76,8 @@ internal fun SettingOthersSection(
 
     if (isShowDeveloperModeDialog) {
         SettingDeveloperModeDialog(
-            onDeveloperModeEnabled = {
-                onDeveloperModeChanged.invoke(true)
+            onDeveloperModeEnable = {
+                onDeveloperModeChange.invoke(true)
                 isShowDeveloperModeDialog = false
             },
             onDismissRequest = {

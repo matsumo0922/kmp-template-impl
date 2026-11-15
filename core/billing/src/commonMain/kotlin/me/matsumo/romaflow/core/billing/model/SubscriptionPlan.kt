@@ -29,8 +29,6 @@ enum class SubscriptionPlan(
     companion object {
         const val ENTITLEMENT_PRO = "RomaFlow Pro"
 
-        fun fromProductId(productId: String): SubscriptionPlan? {
-            return entries.find { it.androidProductId == productId || it.iosProductId == productId }
-        }
+        fun fromProductId(productId: String): SubscriptionPlan? = entries.find { it.androidProductId == productId || it.iosProductId == productId }
     }
 }

@@ -40,13 +40,13 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 internal fun SettingThemeSection(
     setting: AppSetting,
-    onThemeChanged: (Theme) -> Unit,
-    onUseDynamicColorChanged: (Boolean) -> Unit,
-    onSeedColorChanged: (Color) -> Unit,
+    onThemeChange: (Theme) -> Unit,
+    onUseDynamicColorChange: (Boolean) -> Unit,
+    onSeedColorChange: (Color) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val themes = Theme.entries
-    var currentThemeIndex by remember(setting) { mutableStateOf(themes.indexOf(setting.theme)) }
+    val currentThemeIndex by remember(setting) { mutableStateOf(themes.indexOf(setting.theme)) }
 
     var currentDynamicColorProviderIndex by remember {
         mutableStateOf(if (setting.useDynamicColor && isSupportDynamicColor) 0 else 1)
@@ -82,7 +82,7 @@ internal fun SettingThemeSection(
                 .fillMaxWidth(),
             items = themes.toImmutableList(),
             selectedIndex = currentThemeIndex,
-            onSelect = { onThemeChanged.invoke(themes[it]) },
+            onSelect = { onThemeChange.invoke(themes[it]) },
             itemContent = @Composable { item, _ ->
                 Text(
                     text = when (item) {
@@ -110,7 +110,7 @@ internal fun SettingThemeSection(
             selectedIndex = currentDynamicColorProviderIndex,
             onSelect = {
                 currentDynamicColorProviderIndex = it
-                onUseDynamicColorChanged.invoke(it == 0)
+                onUseDynamicColorChange.invoke(it == 0)
             },
         )
 
@@ -124,7 +124,7 @@ internal fun SettingThemeSection(
                     .padding(16.dp, 8.dp)
                     .fillMaxWidth(),
                 color = setting.seedColor,
-                onColorChanged = onSeedColorChanged,
+                onColorChange = onSeedColorChange,
             )
         }
     }

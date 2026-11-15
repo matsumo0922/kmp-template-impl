@@ -15,7 +15,9 @@ import org.koin.dsl.koinConfiguration
  * RomaFlow の Android アプリケーション初期化を担当する Application。
  */
 @OptIn(KoinExperimentalAPI::class)
-class RomaFlowApplication : Application(), KoinStartup {
+class RomaFlowApplication :
+    Application(),
+    KoinStartup {
     override fun onCreate() {
         super.onCreate()
 

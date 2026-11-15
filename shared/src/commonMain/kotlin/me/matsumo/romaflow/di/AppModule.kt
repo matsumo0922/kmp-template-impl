@@ -12,6 +12,8 @@ import me.matsumo.romaflow.core.model.currentPlatform
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
+// DI の構成元で Dispatcher を登録し、利用側へ注入するため
+@Suppress("InjectDispatcher")
 val appModule = module {
     single<CoroutineDispatcher> {
         Dispatchers.IO.limitedParallelism(24)
@@ -47,8 +49,8 @@ val appModule = module {
             versionName = BuildKonfig.VERSION_NAME,
             versionCode = BuildKonfig.VERSION_CODE.toInt(),
             developerPin = BuildKonfig.DEVELOPER_PIN,
-            purchaseAndroidApiKey = BuildKonfig.PURCHASE_ANDROID_API_KEY.takeIf { it.isNotBlank() },
-            purchaseIosApiKey = BuildKonfig.PURCHASE_IOS_API_KEY.takeIf { it.isNotBlank() },
+            purchaseAndroidApiKey = BuildKonfig.PURCHASE_ANDROID_API_KEY.takeIf { apiKey -> apiKey.isNotBlank() },
+            purchaseIosApiKey = BuildKonfig.PURCHASE_IOS_API_KEY.takeIf { apiKey -> apiKey.isNotBlank() },
             adMobAppId = adMobAppId,
             adMobBannerAdUnitId = adMobBannerAdUnitId,
             adMobInterstitialAdUnitId = adMobInterstitialAdUnitId,

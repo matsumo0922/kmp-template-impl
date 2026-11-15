@@ -16,7 +16,7 @@ class DetektPlugin : Plugin<Project> {
             configureDetekt()
 
             dependencies {
-                "detektPlugins"(libs.library("detekt-formatting"))
+                "detektPlugins"(libs.library("detekt-ktlint-wrapper"))
                 "detektPlugins"(libs.library("compose-rules-detekt"))
             }
         }

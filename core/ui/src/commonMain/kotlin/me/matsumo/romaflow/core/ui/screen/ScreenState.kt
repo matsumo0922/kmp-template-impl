@@ -4,18 +4,18 @@ import androidx.compose.runtime.Stable
 import org.jetbrains.compose.resources.StringResource
 
 @Stable
-sealed class ScreenState<out T> {
+sealed interface ScreenState<out T> {
     data class Loading(
         val message: StringResource? = null,
-    ) : ScreenState<Nothing>()
+    ) : ScreenState<Nothing>
 
     data class Error(
         val message: StringResource,
         val retryTitle: StringResource? = null,
         val throwable: Throwable? = null,
-    ) : ScreenState<Nothing>()
+    ) : ScreenState<Nothing>
 
     data class Idle<T>(
         var data: T,
-    ) : ScreenState<T>()
+    ) : ScreenState<T>
 }

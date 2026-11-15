@@ -32,7 +32,7 @@ internal fun SettingScreen(
         topBar = {
             SettingTopAppBar(
                 modifier = Modifier,
-                onBackClicked = onBack,
+                onBackClick = onBack,
             )
         },
     ) {
@@ -44,7 +44,7 @@ internal fun SettingScreen(
                 item {
                     SettingPaywallSection(
                         modifier = Modifier.fillMaxWidth(),
-                        onUpgradeClicked = onUpgradeClick,
+                        onUpgradeClick = onUpgradeClick,
                     )
                 }
             }
@@ -53,9 +53,9 @@ internal fun SettingScreen(
                 SettingThemeSection(
                     modifier = Modifier.fillMaxWidth(),
                     setting = setting,
-                    onThemeChanged = viewModel::setTheme,
-                    onUseDynamicColorChanged = viewModel::setUseDynamicColor,
-                    onSeedColorChanged = viewModel::setSeedColor,
+                    onThemeChange = viewModel::setTheme,
+                    onUseDynamicColorChange = viewModel::setUseDynamicColor,
+                    onSeedColorChange = viewModel::setSeedColor,
                 )
             }
 
@@ -70,14 +70,14 @@ internal fun SettingScreen(
                 SettingOthersSection(
                     modifier = Modifier.fillMaxWidth(),
                     setting = setting,
-                    onTeamsOfServiceClicked = {
+                    onTeamsOfServiceClick = {
                         uriHandler.openUri("https://www.matsumo.me/application/all/team_of_service")
                     },
-                    onPrivacyPolicyClicked = {
+                    onPrivacyPolicyClick = {
                         uriHandler.openUri("https://www.matsumo.me/application/all/privacy_policy")
                     },
-                    onOpenSourceLicenseClicked = onOpenSourceLicensesClick,
-                    onDeveloperModeChanged = viewModel::setDeveloperMode,
+                    onOpenSourceLicenseClick = onOpenSourceLicensesClick,
+                    onDeveloperModeChange = viewModel::setDeveloperMode,
                 )
             }
         }

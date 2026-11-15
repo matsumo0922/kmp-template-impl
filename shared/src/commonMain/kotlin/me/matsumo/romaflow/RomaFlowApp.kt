@@ -1,6 +1,7 @@
 package me.matsumo.romaflow
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.Modifier
 import app.lexilabs.basic.ads.BasicAds
 import app.lexilabs.basic.ads.DependsOnGoogleMobileAds
@@ -24,6 +25,7 @@ fun RomaFlowApp(setting: AppSetting, modifier: Modifier = Modifier) {
 }
 
 @Composable
+@ReadOnlyComposable
 private fun SetupCoil() {
     setSingletonImageLoaderFactory { context ->
         ImageLoader.Builder(context)

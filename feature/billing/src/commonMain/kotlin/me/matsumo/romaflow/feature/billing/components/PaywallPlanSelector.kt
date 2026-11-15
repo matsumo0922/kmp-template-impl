@@ -40,7 +40,7 @@ import org.jetbrains.compose.resources.stringResource
 internal fun PaywallPlanSelector(
     products: ImmutableList<ProductInfo>,
     selectedPlan: SubscriptionPlan,
-    onPlanSelected: (SubscriptionPlan) -> Unit,
+    onPlanSelect: (SubscriptionPlan) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Row(
@@ -52,7 +52,7 @@ internal fun PaywallPlanSelector(
                 modifier = Modifier.weight(1f),
                 product = product,
                 isSelected = selectedPlan == product.plan,
-                onClick = { onPlanSelected(product.plan) },
+                onClick = { onPlanSelect(product.plan) },
             )
         }
     }
@@ -106,32 +106,9 @@ private fun PaywallPlanCard(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(6.dp),
         ) {
-            Surface(
-                color = when (product.plan) {
-                    SubscriptionPlan.LIFETIME -> MaterialTheme.colorScheme.primary
-                    SubscriptionPlan.YEARLY -> MaterialTheme.colorScheme.tertiary
-                    SubscriptionPlan.MONTHLY -> MaterialTheme.colorScheme.secondary
-                },
-                shape = RoundedCornerShape(4.dp),
-            ) {
-                Text(
-                    modifier = Modifier.padding(
-                        horizontal = 6.dp,
-                        vertical = 2.dp,
-                    ),
-                    text = when (product.plan) {
-                        SubscriptionPlan.MONTHLY -> stringResource(Res.string.paywall_plan_monthly_badge)
-                        SubscriptionPlan.YEARLY -> stringResource(Res.string.paywall_plan_yearly_badge)
-                        SubscriptionPlan.LIFETIME -> stringResource(Res.string.paywall_plan_lifetime_badge)
-                    },
-                    style = MaterialTheme.typography.labelSmall,
-                    color = when (product.plan) {
-                        SubscriptionPlan.LIFETIME -> MaterialTheme.colorScheme.onPrimary
-                        SubscriptionPlan.YEARLY -> MaterialTheme.colorScheme.onTertiary
-                        SubscriptionPlan.MONTHLY -> MaterialTheme.colorScheme.onSecondary
-                    },
-                )
-            }
+            PaywallPlanBadge(
+                plan = product.plan,
+            )
 
             Text(
                 text = when (product.plan) {
@@ -150,5 +127,39 @@ private fun PaywallPlanCard(
                 color = MaterialTheme.colorScheme.primary,
             )
         }
+    }
+}
+
+@Composable
+private fun PaywallPlanBadge(
+    plan: SubscriptionPlan,
+    modifier: Modifier = Modifier,
+) {
+    Surface(
+        modifier = modifier,
+        color = when (plan) {
+            SubscriptionPlan.LIFETIME -> MaterialTheme.colorScheme.primary
+            SubscriptionPlan.YEARLY -> MaterialTheme.colorScheme.tertiary
+            SubscriptionPlan.MONTHLY -> MaterialTheme.colorScheme.secondary
+        },
+        shape = RoundedCornerShape(4.dp),
+    ) {
+        Text(
+            modifier = Modifier.padding(
+                horizontal = 6.dp,
+                vertical = 2.dp,
+            ),
+            text = when (plan) {
+                SubscriptionPlan.MONTHLY -> stringResource(Res.string.paywall_plan_monthly_badge)
+                SubscriptionPlan.YEARLY -> stringResource(Res.string.paywall_plan_yearly_badge)
+                SubscriptionPlan.LIFETIME -> stringResource(Res.string.paywall_plan_lifetime_badge)
+            },
+            style = MaterialTheme.typography.labelSmall,
+            color = when (plan) {
+                SubscriptionPlan.LIFETIME -> MaterialTheme.colorScheme.onPrimary
+                SubscriptionPlan.YEARLY -> MaterialTheme.colorScheme.onTertiary
+                SubscriptionPlan.MONTHLY -> MaterialTheme.colorScheme.onSecondary
+            },
+        )
     }
 }

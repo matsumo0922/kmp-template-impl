@@ -34,7 +34,6 @@ import com.mikepenz.aboutlibraries.ui.compose.rememberLibraries
 import me.matsumo.romaflow.core.resource.Res
 import me.matsumo.romaflow.core.resource.setting_other_open_source_license
 import me.matsumo.romaflow.core.ui.screen.view.LoadingView
-import me.matsumo.romaflow.core.ui.theme.LocalNavBackStack
 import me.matsumo.romaflow.feature.setting.oss.components.LibraryItem
 import me.matsumo.romaflow.feature.setting.oss.components.LicenseDialog
 import org.jetbrains.compose.resources.ExperimentalResourceApi
@@ -42,7 +41,7 @@ import org.jetbrains.compose.resources.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalResourceApi::class)
 @Composable
-internal fun SettingLicenseRoute(modifier: Modifier = Modifier) {
+internal fun SettingLicenseRoute(onBack: () -> Unit, modifier: Modifier = Modifier) {
     val libs by rememberLibraries { Res.readBytes("files/aboutlibraries.json").decodeToString() }
 
     AnimatedContent(
@@ -54,6 +53,7 @@ internal fun SettingLicenseRoute(modifier: Modifier = Modifier) {
             SettingLicenseScreen(
                 modifier = Modifier.fillMaxSize(),
                 libs = it,
+                onBack = onBack,
             )
         } else {
             LoadingView(
@@ -65,8 +65,11 @@ internal fun SettingLicenseRoute(modifier: Modifier = Modifier) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun SettingLicenseScreen(libs: Libs, modifier: Modifier = Modifier) {
-    val navBackStack = LocalNavBackStack.current
+private fun SettingLicenseScreen(
+    libs: Libs,
+    onBack: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
     val state = rememberTopAppBarState()
     val behavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior(state)
 
@@ -81,7 +84,7 @@ private fun SettingLicenseScreen(libs: Libs, modifier: Modifier = Modifier) {
                     Text(stringResource(Res.string.setting_other_open_source_license))
                 },
                 navigationIcon = {
-                    IconButton({ navBackStack.removeAt(navBackStack.size - 1) }) {
+                    IconButton(onBack) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Default.ArrowBack,
                             contentDescription = null,

@@ -4,12 +4,23 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavKey
-import me.matsumo.romaflow.core.ui.screen.Destination
+import kotlinx.serialization.Serializable
 
-fun EntryProviderScope<NavKey>.settingEntry() {
-    entry<Destination.Setting.Root> {
+/** 設定画面のルート。 */
+@Serializable
+data object SettingRoute : NavKey
+
+fun EntryProviderScope<NavKey>.settingEntry(
+    onBack: () -> Unit,
+    onUpgradeClick: () -> Unit,
+    onOpenSourceLicensesClick: () -> Unit,
+) {
+    entry<SettingRoute> {
         SettingScreen(
             modifier = Modifier.fillMaxSize(),
+            onBack = onBack,
+            onUpgradeClick = onUpgradeClick,
+            onOpenSourceLicensesClick = onOpenSourceLicensesClick,
         )
     }
 }

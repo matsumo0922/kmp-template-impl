@@ -34,6 +34,7 @@ val rewardAdTestId = "ca-app-pub-3940256099942544/5224354917"
 kotlin {
     android {
         namespace = "me.matsumo.romaflow.shared"
+        withHostTestBuilder {}.configure {}
     }
 
     sourceSets {
@@ -49,6 +50,13 @@ kotlin {
             implementation(project(":feature:home"))
             implementation(project(":feature:setting"))
             implementation(project(":feature:billing"))
+
+            implementation(libs.compose.navigation3)
+            implementation(libs.compose.navigation3.viewmodel)
+        }
+
+        commonTest.dependencies {
+            implementation(kotlin("test"))
         }
 
         androidMain.dependencies {

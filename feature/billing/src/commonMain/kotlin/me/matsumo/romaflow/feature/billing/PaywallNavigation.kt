@@ -4,13 +4,18 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavKey
-import me.matsumo.romaflow.core.ui.screen.Destination
+import kotlinx.serialization.Serializable
 
-fun EntryProviderScope<NavKey>.paywallEntry() {
-    entry<Destination.Paywall> { destination ->
+/** 課金画面のルートと遷移元。 */
+@Serializable
+data class PaywallRoute(val source: String) : NavKey
+
+fun EntryProviderScope<NavKey>.paywallEntry(onBack: () -> Unit) {
+    entry<PaywallRoute> { route ->
         PaywallScreen(
             modifier = Modifier.fillMaxSize(),
-            source = destination.source,
+            source = route.source,
+            onBack = onBack,
         )
     }
 }

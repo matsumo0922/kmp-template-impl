@@ -14,6 +14,7 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
+            implementation(libs.compose.navigation3.runtime)
             implementation(project(":core:common"))
             implementation(project(":core:model"))
             implementation(project(":core:repository"))

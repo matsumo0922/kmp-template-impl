@@ -9,8 +9,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import me.matsumo.romaflow.core.ui.screen.Destination
-import me.matsumo.romaflow.core.ui.theme.LocalNavBackStack
 import me.matsumo.romaflow.feature.setting.components.SettingTopAppBar
 import me.matsumo.romaflow.feature.setting.components.section.SettingInfoSection
 import me.matsumo.romaflow.feature.setting.components.section.SettingOthersSection
@@ -19,8 +17,13 @@ import me.matsumo.romaflow.feature.setting.components.section.SettingThemeSectio
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
-internal fun SettingScreen(modifier: Modifier = Modifier, viewModel: SettingViewModel = koinViewModel()) {
-    val navBackStack = LocalNavBackStack.current
+internal fun SettingScreen(
+    onBack: () -> Unit,
+    onUpgradeClick: () -> Unit,
+    onOpenSourceLicensesClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    viewModel: SettingViewModel = koinViewModel(),
+) {
     val uriHandler = LocalUriHandler.current
     val setting by viewModel.setting.collectAsStateWithLifecycle()
 
@@ -28,8 +31,8 @@ internal fun SettingScreen(modifier: Modifier = Modifier, viewModel: SettingView
         modifier = modifier,
         topBar = {
             SettingTopAppBar(
-                onBackClicked = { navBackStack.removeAt(navBackStack.size - 1) },
                 modifier = Modifier,
+                onBackClicked = onBack,
             )
         },
     ) {
@@ -41,7 +44,7 @@ internal fun SettingScreen(modifier: Modifier = Modifier, viewModel: SettingView
                 item {
                     SettingPaywallSection(
                         modifier = Modifier.fillMaxWidth(),
-                        onUpgradeClicked = { navBackStack.add(Destination.Paywall("setting")) },
+                        onUpgradeClicked = onUpgradeClick,
                     )
                 }
             }
@@ -73,9 +76,7 @@ internal fun SettingScreen(modifier: Modifier = Modifier, viewModel: SettingView
                     onPrivacyPolicyClicked = {
                         uriHandler.openUri("https://www.matsumo.me/application/all/privacy_policy")
                     },
-                    onOpenSourceLicenseClicked = {
-                        navBackStack.add(Destination.Setting.License)
-                    },
+                    onOpenSourceLicenseClicked = onOpenSourceLicensesClick,
                     onDeveloperModeChanged = viewModel::setDeveloperMode,
                 )
             }

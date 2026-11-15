@@ -4,12 +4,17 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavKey
-import me.matsumo.romaflow.core.ui.screen.Destination
+import kotlinx.serialization.Serializable
 
-fun EntryProviderScope<NavKey>.settingLicenseEntry() {
-    entry<Destination.Setting.License> {
+/** OSS ライセンス画面のルート。 */
+@Serializable
+data object OpenSourceLicensesRoute : NavKey
+
+fun EntryProviderScope<NavKey>.openSourceLicensesEntry(onBack: () -> Unit) {
+    entry<OpenSourceLicensesRoute> {
         SettingLicenseRoute(
             modifier = Modifier.fillMaxSize(),
+            onBack = onBack,
         )
     }
 }
